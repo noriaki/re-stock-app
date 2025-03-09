@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# APIキー関連（追加）
+**/apikeys.*
+**/secrets.*
+config/keys.*
