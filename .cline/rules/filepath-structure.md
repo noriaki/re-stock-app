@@ -2,9 +2,7 @@
 
 ```
 app/*                 # アプリケーション
-components/*          # コンポーネント
-lib/                  # 一般ユーティリティ
-types/                # 型定義
+src/*                 # ソースコード
 public/               # 静的ファイル
 .cline/               # Cline用のディレクトリ
 .cline/rules/         # .clinerulesの元となる振る舞い･ルール
