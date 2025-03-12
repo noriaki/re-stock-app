@@ -45,5 +45,11 @@
       "label": "Next.js",
       "onAutoForward": "notify"
     }
-  }
+  },
+
+  "remoteEnv": {
+    "CLAUDE_HOME": "/home/node/.config/claude"
+  },
+
+  "remoteUser": "node"
 }
