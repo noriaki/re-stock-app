@@ -2,5 +2,26 @@
   "name": "Re-Stock App",
   "dockerFile": "Dockerfile",
   "forwardPorts": [3000],
-  "postCreateCommand": "yarn install"
+  "postCreateCommand": "yarn install",
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22.14.0"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "GitHub.vscode-github-actions",
+        "saoudrizwan.claude-dev"
+      ]
+    }
+  }
 }
