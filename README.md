@@ -1,5 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## 開発環境
+
+このプロジェクトはVS Code Dev Containersを使用して開発環境を標準化しています。
+
+### 前提条件
+
+- [Docker](https://www.docker.com/get-started)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Remote - Containers拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+### 開発環境の起動方法
+
+1. リポジトリをクローン: `git clone https://github.com/yourusername/re-stock-app.git`
+2. VS Codeでプロジェクトを開く
+3. VS Codeが開発コンテナの使用を検出し、メッセージが表示されます
+4. 「Reopen in Container」をクリックしてコンテナ内で開発を開始
+
+または、コマンドパレット（`F1`）から「Remote-Containers: Reopen in Container」を選択します。
+
+### GitHub Codespacesの使用
+
+このプロジェクトはGitHub Codespacesもサポートしています。GitHubリポジトリページの「Code」ボタンから「Create codespace」を選択するだけで開発を開始できます。
+
 ## Getting Started
 
 First, run the development server:
