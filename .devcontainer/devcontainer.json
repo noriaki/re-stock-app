@@ -1,0 +1,6 @@
+{
+  "name": "Re-Stock App",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [3000],
+  "postCreateCommand": "yarn install"
+}
