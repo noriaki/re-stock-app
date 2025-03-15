@@ -4,13 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: "1000:1000"  # ホストのUID:GIDに合わせる
     volumes:
       - ..:/workspace:cached,z
-      - node_modules:/workspace/node_modules
+      - /workspace/node_modules  # 匿名ボリュームとして設定
       # - ~/.config/claude:/home/node/.config/claude:cached
     command: sleep infinity
     ports:
       - 3000:3000
-
-volumes:
-  node_modules:
