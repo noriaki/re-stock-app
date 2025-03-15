@@ -5,9 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/workspace:cached
+      - ..:/workspace:cached,z
       - node_modules:/workspace/node_modules
-      - ~/.config/claude:/home/node/.config/claude:cached
+      # - ~/.config/claude:/home/node/.config/claude:cached
     command: sleep infinity
     ports:
       - 3000:3000
