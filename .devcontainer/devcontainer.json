@@ -4,7 +4,7 @@
   "service": "app",
   "workspaceFolder": "/workspace",
   "forwardPorts": [3000],
-  "postCreateCommand": "sudo mkdir -p /workspace/node_modules && sudo chown -R node:node /workspace/node_modules && yarn install",
+  "postCreateCommand": "mkdir -p /workspace/node_modules && chown -R node:node /workspace/node_modules && yarn install",
 
   "waitFor": "postCreateCommand",
   "updateContentCommand": "yarn install",
