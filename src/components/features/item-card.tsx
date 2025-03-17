@@ -11,14 +11,14 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
   // 未開封アイテムの丸を生成
   const renderUnopenedDots = () => {
     return Array.from({ length: item.unopenedCount }).map((_, index) => (
-      <div key={`unopened-${index}`} className="w-6 h-6 rounded-full unopened-dot"></div>
+      <div key={`unopened-${index}`} className="w-7 h-7 rounded-full unopened-dot"></div>
     ));
   };
 
   // 開封済みアイテムの丸を生成
   const renderOpenedDots = () => {
     return Array.from({ length: item.openedCount }).map((_, index) => (
-      <div key={`opened-${index}`} className="w-6 h-6 rounded-full opened-dot"></div>
+      <div key={`opened-${index}`} className="w-7 h-7 rounded-full opened-dot"></div>
     ));
   };
 
@@ -30,11 +30,11 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
       <div className="grid grid-cols-3 items-center">
         {/* 商品情報 */}
         <div className="col-span-1 flex flex-col items-center">
-          <div className="w-14 h-14 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center mb-2 shadow-sm">
+          <div className="w-16 h-16 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center mb-2 shadow-sm">
             {item.image ? (
-              <img src={item.image} alt={item.name.toString()} className="w-12 h-12 object-cover" />
+              <img src={item.image} alt={item.name.toString()} className="w-14 h-14 object-cover" />
             ) : (
-              <Camera size={18} className="text-gray-400" />
+              <Camera size={20} className="text-gray-400" />
             )}
           </div>
           <span className="text-xs text-center font-medium">{item.name.toString()}</span>
