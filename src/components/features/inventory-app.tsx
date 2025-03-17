@@ -37,7 +37,7 @@ export default function InventoryApp() {
   const [activeTab, setActiveTab] = useState<"home" | "categories" | "settings">("home");
   
   return (
-    <div className="flex flex-col h-screen bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="flex flex-col h-screen bg-white shadow-lg overflow-hidden max-w-md mx-auto">
       {/* ヘッダー */}
       <Header title="在庫管理" />
       

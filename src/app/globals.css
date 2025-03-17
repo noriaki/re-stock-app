@@ -9,8 +9,8 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -21,8 +21,21 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 210 100% 50%;
     --radius: 0.5rem;
+    
+    /* カスタムカラー */
+    --status-bar-bg: 210 33% 96%;
+    --header-bg: 210 100% 50%;
+    --category-header-bg: 0 0% 96%;
+    --table-header-bg: 0 0% 90%;
+    --nav-bg: 0 0% 96%;
+    --nav-border: 0 0% 85%;
+    --item-alt-bg: 0 0% 98%;
+    --unopened-bg: 142 52% 96%;
+    --unopened-border: 142 52% 80%;
+    --opened-bg: 48 100% 96%;
+    --opened-border: 48 100% 80%;
   }
 
   .dark {
@@ -55,6 +68,43 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   }
+}
+
+/* カスタムユーティリティクラス */
+.status-bar {
+  background-color: hsl(var(--status-bar-bg));
+}
+
+.header-bg {
+  background-color: hsl(var(--header-bg));
+  color: hsl(var(--primary-foreground));
+}
+
+.category-header {
+  background-color: hsl(var(--category-header-bg));
+}
+
+.table-header {
+  background-color: hsl(var(--table-header-bg));
+}
+
+.nav-bg {
+  background-color: hsl(var(--nav-bg));
+  border-color: hsl(var(--nav-border));
+}
+
+.item-alt-bg {
+  background-color: hsl(var(--item-alt-bg));
+}
+
+.unopened-dot {
+  background-color: hsl(var(--unopened-bg));
+  border-color: hsl(var(--unopened-border));
+}
+
+.opened-dot {
+  background-color: hsl(var(--opened-bg));
+  border-color: hsl(var(--opened-border));
 }
