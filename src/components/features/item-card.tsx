@@ -11,14 +11,14 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
   // 未開封アイテムの丸を生成
   const renderUnopenedDots = () => {
     return Array.from({ length: item.unopenedCount }).map((_, index) => (
-      <div key={`unopened-${index}`} className="w-7 h-7 rounded-full unopened-dot"></div>
+      <div key={`unopened-${index}`} className="w-7 h-7 rounded-full unopened-dot border-2"></div>
     ));
   };
 
   // 開封済みアイテムの丸を生成
   const renderOpenedDots = () => {
     return Array.from({ length: item.openedCount }).map((_, index) => (
-      <div key={`opened-${index}`} className="w-7 h-7 rounded-full opened-dot"></div>
+      <div key={`opened-${index}`} className="w-7 h-7 rounded-full opened-dot border-2"></div>
     ));
   };
 
