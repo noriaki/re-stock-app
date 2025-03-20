@@ -9,7 +9,7 @@ Re-Stock アプリは、モダンな Web 技術スタックを使用して構築
 - **フレームワーク**: Next.js 15.2.1 (App Router)
 - **言語**: TypeScript 5.x
 - **UI ライブラリ**: React 19.0.0
-- **スタイリング**: Tailwind CSS 4.x + shadcn/ui
+- **スタイリング**: Tailwind CSS 3.4.x + shadcn/ui
 - **状態管理**: Zustand
 - **フォーム管理**: React Hook Form + zod
 - **データ永続化**: localStorage (初期実装)
