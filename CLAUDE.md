@@ -103,6 +103,13 @@ Presentation → Application → Domain ← Infrastructure
 - After review and testing, merge to `main`
 - Delete the branch after merging
 
+### Git and GitHub Rules
+- **IMPORTANT**: All Git-related text must be written in English
+- Write all commit messages in English
+- Create all Pull Request titles and descriptions in English
+- Write all GitHub Issues, comments, and tags in English
+- Use English for all branch names
+
 ### Branch Naming
 - Features: `feature/feature-name`
 - Bug fixes: `fix/bug-description`
