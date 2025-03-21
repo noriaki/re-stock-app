@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { Item } from '@/types/inventory';
+import { Item, ItemId } from '@/types/inventory';
 import ItemCard from '@/components/features/item-card';
 import ItemOperationPanel from '@/components/features/inventory/item-operation-panel';
 import { useItemStore } from '@/stores/item-store';
@@ -17,18 +17,17 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
   const [animation, setAnimation] = useState<string | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   
-  // Get the consumeAndOpen action from the store
-  const consumeAndOpen = useItemStore((state) => state.consumeAndOpen);
-
   // Close panel handler
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setShowPanel(false);
-  };
+  }, []);
 
   // Right swipe handler - perform "consume and open" quick action
-  const handleRightSwipe = () => {
+  const handleRightSwipe = useCallback(() => {
+    const performAction = useItemStore.getState().consumeAndOpen;
+    
     if (item.unopenedCount > 0) {
-      consumeAndOpen(item.id);
+      performAction(item.id);
       
       // Show success animation
       setAnimation('success-action');
@@ -42,12 +41,12 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
         setAnimation(null);
       }, 500);
     }
-  };
+  }, [item.id, item.unopenedCount]);
 
   // Left swipe handler - show operation panel
-  const handleLeftSwipe = () => {
+  const handleLeftSwipe = useCallback(() => {
     setShowPanel(true);
-  };
+  }, []);
 
   // Swipe handlers
   const swipeHandlers = useSwipeable({
@@ -71,32 +70,14 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
       
       {showPanel && (
         <div className="absolute top-0 right-0 bottom-0 flex items-center">
-          <ItemOperationPanel item={item} onClose={handleClose} />
+          <ItemOperationPanel 
+            itemId={item.id} 
+            unopenedCount={item.unopenedCount}
+            openedCount={item.openedCount}
+            onClose={handleClose} 
+          />
         </div>
       )}
-      
-      {/* Visual feedback styles for animations */}
-      <style jsx>{`
-        .success-action {
-          animation: pulse-success 0.5s;
-        }
-        
-        .error-action {
-          animation: pulse-error 0.5s;
-        }
-        
-        @keyframes pulse-success {
-          0% { background-color: transparent; }
-          50% { background-color: rgba(34, 197, 94, 0.2); }
-          100% { background-color: transparent; }
-        }
-        
-        @keyframes pulse-error {
-          0% { background-color: transparent; }
-          50% { background-color: rgba(239, 68, 68, 0.2); }
-          100% { background-color: transparent; }
-        }
-      `}</style>
     </div>
   );
 }
