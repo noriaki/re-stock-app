@@ -21,6 +21,7 @@ interface ItemStore {
   decrementUnopenedCount: (id: ItemId) => void;
   incrementOpenedCount: (id: ItemId) => void;
   decrementOpenedCount: (id: ItemId) => void;
+  consumeAndOpen: (id: ItemId) => void; // 複合操作：使い切り+開封
   
   // 派生データ
   getLowStockItems: () => Item[];
@@ -140,6 +141,17 @@ export const useItemStore = create<ItemStore>()(
         items: state.items.map((item) =>
           item.id === id && item.openedCount > 0
             ? { ...item, openedCount: item.openedCount - 1 }
+            : item
+        )
+      })),
+      
+      // 複合操作：使い切り+開封（最優先パターン）
+      // 開封済みを使い切って未開封を開封する操作
+      // データ上は未開封品だけを減らす（未開封-1のみ）
+      consumeAndOpen: (id) => set((state) => ({
+        items: state.items.map((item) =>
+          item.id === id && item.unopenedCount > 0
+            ? { ...item, unopenedCount: item.unopenedCount - 1 }
             : item
         )
       })),

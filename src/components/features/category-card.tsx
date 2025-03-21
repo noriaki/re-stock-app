@@ -1,5 +1,5 @@
 import { CategoryGroup } from "@/types/inventory";
-import ItemCard from "@/components/features/item-card";
+import SwipeableItemCard from "@/components/features/inventory/swipeable-item-card";
 
 interface CategoryCardProps {
   category: CategoryGroup;
@@ -21,9 +21,9 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       </div>
 
       {/* 商品リスト */}
-      <div>
+      <div className="relative">
         {category.items.map((item, index) => (
-          <ItemCard key={item.id.toString()} item={item} isAlternate={index % 2 === 1} />
+          <SwipeableItemCard key={item.id.toString()} item={item} isAlternate={index % 2 === 1} />
         ))}
       </div>
     </div>
