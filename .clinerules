@@ -231,6 +231,8 @@ git checkout -b feature/new-feature-name
 - リファクタリング: `refactor/内容`
 - ドキュメント: `docs/内容`
 
+なお、Git のブランチ名は英語で文法的に適切に 3 ～ 5 語程度の長さで命名します。
+
 ### 2. 変更の追加とコミットの作成
 
 機能ブランチで作業を行い、小さな単位で変更をコミットします。コミットを作成する際は、以下の手順に従います：
@@ -261,6 +263,7 @@ git --no-pager log
 - 明確で簡潔な言葉を使用
 - 変更の目的を正確に反映
 - 一般的な表現を避ける
+- コミットメッセージは常に英語で記述する
 
 #### 4. コミットの実行
 
@@ -277,7 +280,7 @@ feat: ユーザー認証にResult型を導入
 - テストの改善
 
 🤖 ${K4}で生成
-Co-Authored-By: Claude noreply@anthropic.com
+Co-Authored-By: Cline (Claude) noreply@anthropic.com
 EOF
 )"
 ```
@@ -317,6 +320,9 @@ git --no-pager log
 - 機密情報の有無確認
 
 #### 3. プルリクエストの作成
+
+- Pull Request のタイトルと説明は英語で記述する
+- Issue、コメント、タグなど GitHub に残る記録はすべて英語で記述する
 
 ```bash
 # プルリクエストの作成（HEREDOCを使用）
