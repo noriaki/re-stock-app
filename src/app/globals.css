@@ -113,10 +113,12 @@
 /* スワイプ操作のスタイル */
 .success-action {
   animation: pulse-success 0.5s;
+  position: relative;
 }
 
 .error-action {
   animation: pulse-error 0.5s;
+  position: relative;
 }
 
 @keyframes pulse-success {

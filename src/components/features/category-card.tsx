@@ -21,7 +21,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       </div>
 
       {/* 商品リスト */}
-      <div>
+      <div className="relative">
         {category.items.map((item, index) => (
           <SwipeableItemCard key={item.id.toString()} item={item} isAlternate={index % 2 === 1} />
         ))}

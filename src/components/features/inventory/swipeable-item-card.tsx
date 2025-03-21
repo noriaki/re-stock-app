@@ -60,7 +60,7 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
 
   return (
     <div 
-      className={`relative ${animation ? animation : ''}`} 
+      className={`relative ${animation ? animation : ''} ${showPanel ? 'z-10' : ''}`} 
       ref={cardRef}
       {...swipeHandlers}
     >
@@ -69,7 +69,7 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
       </div>
       
       {showPanel && (
-        <div className="absolute top-0 right-0 bottom-0 flex items-center">
+        <div className="absolute top-0 right-0 bottom-0 flex items-center z-20">
           <ItemOperationPanel 
             itemId={item.id} 
             unopenedCount={item.unopenedCount}

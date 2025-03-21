@@ -66,7 +66,7 @@ export default function ItemOperationPanel({
   }, [itemId, openedCount, onClose]);
 
   return (
-    <div className="bg-white shadow-lg rounded-l-md border-l border-t border-b flex flex-col p-2 h-full">
+    <div className="bg-white shadow-lg rounded-l-md border-l border-t border-b flex flex-col p-2 h-full z-30">
       {/* Main operations */}
       <div className="grid grid-cols-1 gap-2">
         {/* 1. "Consume and Open" (Highest priority) */}
