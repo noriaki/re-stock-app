@@ -101,7 +101,10 @@ Presentation → Application → Domain ← Infrastructure
 - Make changes and commit with descriptive messages
 - Push branch and create PR
 - After review and testing, merge to `main`
-- Delete the branch after merging
+- Delete the branch after merging:
+  - Delete local branch: `git branch -d feature/new-feature-name`
+  - Delete remote branch: `git push origin --delete feature/new-feature-name`
+- Always remember to delete both local AND remote branches after merging
 
 ### Git and GitHub Rules
 - **IMPORTANT**: All Git-related text must be written in English
