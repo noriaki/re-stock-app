@@ -109,3 +109,24 @@
   background-color: hsl(var(--opened-bg));
   border-color: hsl(var(--opened-border));
 }
+
+/* スワイプ操作のスタイル */
+.success-action {
+  animation: pulse-success 0.5s;
+}
+
+.error-action {
+  animation: pulse-error 0.5s;
+}
+
+@keyframes pulse-success {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(34, 197, 94, 0.2); }
+  100% { background-color: transparent; }
+}
+
+@keyframes pulse-error {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(239, 68, 68, 0.2); }
+  100% { background-color: transparent; }
+}
