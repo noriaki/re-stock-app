@@ -1,4 +1,5 @@
 import { Camera } from "lucide-react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Item, isItemLowStock } from "@/types/inventory";
 
@@ -32,7 +33,13 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
         <div className="col-span-1 flex flex-col items-center">
           <div className="w-16 h-16 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center mb-2 shadow-sm">
             {item.image ? (
-              <img src={item.image} alt={item.name.toString()} className="w-14 h-14 object-cover" />
+              <Image 
+                src={item.image} 
+                alt={item.name.toString()} 
+                width={56} 
+                height={56}
+                className="w-14 h-14 object-cover" 
+              />
             ) : (
               <Camera size={20} className="text-gray-400" />
             )}

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { Item, ItemId } from '@/types/inventory';
+import { Item } from '@/types/inventory';
 import ItemCard from '@/components/features/item-card';
 import ItemOperationPanel from '@/components/features/inventory/item-operation-panel';
 import { useItemStore } from '@/stores/item-store';
@@ -15,7 +15,6 @@ interface SwipeableItemCardProps {
 export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCardProps) {
   const [showPanel, setShowPanel] = useState(false);
   const [animation, setAnimation] = useState<string | null>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
   
   // Close panel handler
   const handleClose = useCallback(() => {
@@ -61,7 +60,6 @@ export default function SwipeableItemCard({ item, isAlternate }: SwipeableItemCa
   return (
     <div 
       className={`relative ${animation ? animation : ''} ${showPanel ? 'z-10' : ''}`} 
-      ref={cardRef}
       {...swipeHandlers}
     >
       <div className={`transition-transform duration-300 ease-in-out ${showPanel ? 'translate-x-[-120px]' : ''}`}>
