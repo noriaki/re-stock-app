@@ -441,6 +441,9 @@ export const useItemStore = create<ItemStore>()(
 - Zustand store setup with localStorage persistence
 - Category display with derived data
 - State update logic
+- SwipeableItemCard with left/right swipe gestures
+- ItemOperationPanel with prioritized operation buttons
+- Compound operation: "consume and open" for quick actions
 
 ### In Progress
 - Item addition/editing form
@@ -454,11 +457,12 @@ export const useItemStore = create<ItemStore>()(
 - Server components and Zustand integration ("use client" directive requirement)
 - localStorage limitations (capacity, device synchronization, private browsing)
 - Performance concerns with large number of items
+- Potential z-index issues with overlapping swipe panels
 
 ### Next Steps
 1. Implement item addition/editing form
-2. Implement stock operation UI
-3. Implement category filtering
-4. Complete repository implementation
-5. Enhance validation logic
-6. Add tests
+2. Implement category filtering
+3. Complete repository implementation
+4. Enhance validation logic
+5. Add tests
+6. Improve swipeable card UX with visual cues and haptic feedback
