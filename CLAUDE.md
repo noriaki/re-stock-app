@@ -457,7 +457,6 @@ export const useItemStore = create<ItemStore>()(
 - Server components and Zustand integration ("use client" directive requirement)
 - localStorage limitations (capacity, device synchronization, private browsing)
 - Performance concerns with large number of items
-- Potential z-index issues with overlapping swipe panels
 
 ### Next Steps
 1. Implement item addition/editing form
