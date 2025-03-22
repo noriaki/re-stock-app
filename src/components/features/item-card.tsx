@@ -1,7 +1,9 @@
-import { Camera } from "lucide-react";
+import { Camera, Share2 } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Item, isItemLowStock } from "@/types/inventory";
+import { LineShareButton } from "./share/line-share-button";
+import { Button } from "../ui/button";
 
 interface ItemCardProps {
   item: Item;
@@ -25,6 +27,22 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
 
   // 在庫が閾値以下かどうかを判定
   const lowStock = isItemLowStock(item);
+  
+  // 共有メッセージを作成
+  const createShareMessage = () => {
+    const totalCount = item.unopenedCount + item.openedCount;
+    const stockStatus = lowStock ? '【残りわずか】' : '';
+    
+    let message = `${stockStatus}${item.name.toString()}\n`;
+    message += `ブランド: ${item.brand.toString()}\n`;
+    message += `残り: ${totalCount}個（未開封: ${item.unopenedCount}、開封済: ${item.openedCount}）\n`;
+    
+    if (item.purchaseUrl) {
+      message += `購入URL: ${item.purchaseUrl}`;
+    }
+    
+    return message;
+  };
 
   return (
     <div className={`py-4 px-4 border-b ${isAlternate ? "item-alt-bg" : "bg-white"}`}>
@@ -46,6 +64,17 @@ export default function ItemCard({ item, isAlternate = false }: ItemCardProps) {
           </div>
           <span className="text-xs text-center font-medium">{item.name.toString()}</span>
           {lowStock && <Badge variant="destructive" className="mt-1.5 text-[10px] px-1.5 py-0.5 font-medium">残り少</Badge>}
+          
+          {/* 共有ボタン */}
+          <LineShareButton
+            message={{ type: 'text', text: createShareMessage() }}
+            variant="ghost"
+            size="sm"
+            className="mt-2 h-7 px-2 rounded-full"
+          >
+            <Share2 size={14} className="mr-1" />
+            <span className="text-xs">共有</span>
+          </LineShareButton>
         </div>
 
         {/* 未開封アイテム */}
