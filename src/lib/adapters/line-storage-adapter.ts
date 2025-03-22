@@ -35,7 +35,8 @@ export class LineStorageAdapter implements StorageAdapter {
   async getItem(key: string): Promise<Result<string | null, Error>> {
     try {
       const userKey = this.getUserKey(key);
-      return ok(localStorage.getItem(userKey));
+      const value = localStorage.getItem(userKey);
+      return ok(value);
     } catch (error) {
       return err(error instanceof Error ? error : new Error(String(error)));
     }
