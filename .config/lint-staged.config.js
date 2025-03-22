@@ -1,7 +1,7 @@
 module.exports = {
   '**/*.{js,jsx,ts,tsx}': [
-    'yarn lint',
-    'yarn tsc --noEmit',
+    'yarn lint:fix',
+    'yarn typecheck',
     'yarn test --findRelatedTests --bail',
   ],
 };
