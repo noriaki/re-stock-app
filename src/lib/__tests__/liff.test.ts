@@ -29,14 +29,19 @@ describe('LIFF initialization', () => {
     const mockLiffId = 'mock-liff-id';
     await initializeLiff(mockLiffId);
     
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const liffModule = require('@line/liff').default;
-    expect(liffModule.init).toHaveBeenCalledWith({ liffId: mockLiffId });
+    expect(liffModule.init).toHaveBeenCalledWith({ 
+      liffId: mockLiffId,
+      withLoginOnExternalBrowser: true
+    });
   });
 
   test('should handle initialization errors', async () => {
     const mockLiffId = 'mock-liff-id';
     const mockError = new Error('LIFF initialization failed');
     
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const liffModule = require('@line/liff').default;
     liffModule.init.mockRejectedValueOnce(mockError);
     

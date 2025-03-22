@@ -16,7 +16,7 @@ describe('AuthButton', () => {
   test('should render login button when not authenticated', () => {
     // 未認証状態のモック
     const loginMock = jest.fn();
-    (useAuthStore as jest.Mock).mockReturnValue({
+    (useAuthStore as unknown as jest.Mock).mockReturnValue({
       isAuthenticated: false,
       login: loginMock,
     });
@@ -38,7 +38,7 @@ describe('AuthButton', () => {
   test('should render logout button when authenticated', () => {
     // 認証済み状態のモック
     const logoutMock = jest.fn();
-    (useAuthStore as jest.Mock).mockReturnValue({
+    (useAuthStore as unknown as jest.Mock).mockReturnValue({
       isAuthenticated: true,
       user: { name: 'Test User' },
       logout: logoutMock,
@@ -61,7 +61,7 @@ describe('AuthButton', () => {
 
   test('should render loading state', () => {
     // ローディング状態のモック
-    (useAuthStore as jest.Mock).mockReturnValue({
+    (useAuthStore as unknown as jest.Mock).mockReturnValue({
       isAuthenticating: true,
     });
     

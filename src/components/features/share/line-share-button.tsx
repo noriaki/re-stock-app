@@ -7,7 +7,7 @@ import { Button, ButtonProps } from "@/components/ui/button";
 type LineMessage = {
   type: string;
   text?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 interface LineShareButtonProps extends Omit<ButtonProps, "onClick"> {

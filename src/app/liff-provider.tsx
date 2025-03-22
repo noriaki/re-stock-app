@@ -12,7 +12,7 @@ interface LiffProviderProps {
  * LIFF SDK初期化を行うためのプロバイダーコンポーネント
  */
 export function LiffProvider({ children }: LiffProviderProps) {
-  const [isLiffInitialized, setIsLiffInitialized] = useState(false);
+  const [, setIsLiffInitialized] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { login } = useAuthStore();
 

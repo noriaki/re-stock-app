@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Item, isItemLowStock } from "@/types/inventory";
 import { LineShareButton } from "./share/line-share-button";
-import { Button } from "../ui/button";
 
 interface ItemCardProps {
   item: Item;

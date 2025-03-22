@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { LineShareButton } from '../line-share-button';
+import type { Liff } from '@line/liff';
 
 // window.liffをモック
 const mockShareTargetPicker = jest.fn();
@@ -11,7 +12,7 @@ global.window.liff = {
   shareTargetPicker: mockShareTargetPicker,
   isInClient: mockIsInClient,
   openWindow: mockOpenWindow,
-} as any;
+} as unknown as Liff;
 
 describe('LineShareButton', () => {
   beforeEach(() => {

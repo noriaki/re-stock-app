@@ -48,7 +48,9 @@ describe('LineStorageAdapter', () => {
       
       expect(mockLocalStorage.getItem).toHaveBeenCalledWith('user123:testKey');
       expect(result.ok).toBe(true);
-      expect(result.value).toBe('{"test":"value"}');
+      if (result.ok) {
+        expect(result.value).toBe('{"test":"value"}');
+      }
     });
     
     test('should use normal key when not logged in', async () => {
@@ -59,7 +61,9 @@ describe('LineStorageAdapter', () => {
       
       expect(mockLocalStorage.getItem).toHaveBeenCalledWith('testKey');
       expect(result.ok).toBe(true);
-      expect(result.value).toBe('{"test":"value"}');
+      if (result.ok) {
+        expect(result.value).toBe('{"test":"value"}');
+      }
     });
     
     test('should handle errors', async () => {
@@ -68,8 +72,10 @@ describe('LineStorageAdapter', () => {
       const result = await adapter.getItem('testKey');
       
       expect(result.ok).toBe(false);
-      expect(result.error).toBeInstanceOf(Error);
-      expect(result.error.message).toBe('Test error');
+      if (!result.ok) {
+        expect(result.error).toBeInstanceOf(Error);
+        expect(result.error.message).toBe('Test error');
+      }
     });
   });
 
@@ -99,8 +105,10 @@ describe('LineStorageAdapter', () => {
       const result = await adapter.setItem('testKey', '{}');
       
       expect(result.ok).toBe(false);
-      expect(result.error).toBeInstanceOf(Error);
-      expect(result.error.message).toBe('Test error');
+      if (!result.ok) {
+        expect(result.error).toBeInstanceOf(Error);
+        expect(result.error.message).toBe('Test error');
+      }
     });
   });
 
@@ -130,8 +138,10 @@ describe('LineStorageAdapter', () => {
       const result = await adapter.removeItem('testKey');
       
       expect(result.ok).toBe(false);
-      expect(result.error).toBeInstanceOf(Error);
-      expect(result.error.message).toBe('Test error');
+      if (!result.ok) {
+        expect(result.error).toBeInstanceOf(Error);
+        expect(result.error.message).toBe('Test error');
+      }
     });
   });
 });
