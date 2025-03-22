@@ -25,7 +25,7 @@ describe('LineShareButton', () => {
     mockShareTargetPicker.mockResolvedValue({ status: 'success' });
     
     const mockMessage = {
-      type: 'text',
+      type: 'text' as const,
       text: 'Test message',
     };
     
@@ -45,7 +45,7 @@ describe('LineShareButton', () => {
     mockIsInClient.mockReturnValue(false);
     
     const mockMessage = {
-      type: 'text',
+      type: 'text' as const,
       text: 'Test message',
     };
     
@@ -72,7 +72,7 @@ describe('LineShareButton', () => {
     const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
     
     const mockMessage = {
-      type: 'text',
+      type: 'text' as const,
       text: 'Test message',
     };
     

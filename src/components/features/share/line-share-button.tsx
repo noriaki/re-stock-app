@@ -4,11 +4,15 @@ import { ReactNode } from "react";
 import { Button, ButtonProps } from "@/components/ui/button";
 
 // LINEメッセージの型定義
-type LineMessage = {
-  type: string;
-  text?: string;
+type TextMessage = {
+  type: 'text';
+  text: string;
   [key: string]: unknown;
 };
+
+// LIFFで使用するメッセージ型
+// LIFF APIのドキュメントに基づく
+type LineMessage = TextMessage;
 
 interface LineShareButtonProps extends Omit<ButtonProps, "onClick"> {
   message: LineMessage;
