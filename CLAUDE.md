@@ -29,9 +29,24 @@ Re-Stock is a web app that allows users to manage their household daily necessit
 - `yarn build` - Build for production
 - `yarn start` - Start production server
 - `yarn lint` - Run ESLint
-- `yarn tsc --noEmit <target>` - Type check specific target files
+- `yarn lint:fix` - Run ESLint with automatic fixes
+- `yarn typecheck` - Type check project files
 - `yarn test` - Run tests
 - `yarn test --coverage` - Run tests with coverage report
+- `yarn check` - Run lint:fix, typecheck, and tests in sequence
+
+### Quality Control Process
+1. After making code changes, always run `yarn check` to verify:
+   - Code style with automatic fixes (lint:fix)
+   - Type correctness (typecheck)
+   - Functional correctness (test)
+2. For lint/TypeScript errors:
+   - First try automatic fixes with `yarn lint:fix`
+   - Only manually edit files for errors that cannot be fixed automatically
+3. Git commits are protected by husky pre-commit hooks that run:
+   - ESLint with fixes
+   - TypeScript checking
+   - Jest tests on modified files
 
 ## Architecture
 
